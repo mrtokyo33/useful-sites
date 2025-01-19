@@ -6,10 +6,12 @@ function togglePanel() {
 
     if (showPanel) {
         panel.style.display = 'none';
-        addButton.classList.remove('hidden');
+        panel.classList.remove('show');
+        addButton.style.display = 'block';
     } else {
-        panel.style.display = 'flex';
-        addButton.classList.add('hidden');
+        panel.style.display = 'block';
+        panel.classList.add('show');
+        addButton.style.display = 'none';
     }
 
     showPanel = !showPanel;
@@ -20,8 +22,6 @@ document.getElementById('add-button').addEventListener('click', function(event) 
     togglePanel();
 });
 
-document.getElementById('panel-close--button').addEventListener('click', function() {
+document.getElementById('panel-close-button').addEventListener('click', function() {
     togglePanel();
 });
-
-document.getElementById('add-links-panel').style.display = 'none';
