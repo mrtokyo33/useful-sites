@@ -15,10 +15,10 @@
 .item {
     width: 25%;
     aspect-ratio: 1 / 1;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: .1vw solid rgba(255, 255, 255, 0.3);
     display: inline-block;
     text-align: center;
-    margin: 10px;
+    margin: .5vw;
     position: relative;
     overflow: hidden; 
 }
@@ -46,11 +46,10 @@
     background-color: #3e4044;
 }
 
-
 #add-button {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 2vw;
+    right: 2vw;
     z-index: 1000;
 }
 
@@ -79,4 +78,27 @@
     font-size: 1.5em;
     margin: 0;
     pointer-events: none;
+}
+
+#add-links-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    padding: 3%;
+    width: 80%;
+    height: 80%;
+    aspect-ratio: 1 / 1;
+    border-radius: 2vw;
+    background-color: #1e1e1e;
+    box-shadow: 0 0 20vw #000;
+}
+
+#panel-close--button {
+    transform: translate(100%);
+    border: none;
+    outline: none;
 }
