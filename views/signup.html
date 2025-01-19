@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Useful Sites</title>
+
+    <link rel="shortcut icon" href="../assets/icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/login.css">  
+</head>
+<body>
+    <header>
+        <h1 class="titles">Some Useful Links!</h1>
+        <nav>
+            <ul class="nav-ul">
+                <li class="nav-item"><a href="../index.html" target="_self" rel="nofollow" id="nav-home">Home</a></li>
+                <li class="nav-item"><a href="https://github.com/mrtokyo33/useful-sites" target="_blank" rel="external" id="nav-repo">Repository</a></li>   
+                <span class="search-container">
+                    <i class="fa fa-search" id="search-ico"></i>
+                    <input type="text" name="search" placeholder="Search..." id="search-text">
+                </span>
+
+                <span class="login-icon-container">
+                    <a href="login.html">
+                        <i class="fas fa-user" id="login-ico"></i>
+                    </a>
+                </span>
+            </ul>
+        </nav>        
+    </header>
+
+    <main>
+        <div class="login-container">
+            <h1>Sign Up</h1>
+
+            <div class="login-input-container">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" placeholder="username">
+            </div>
+
+            <div class="login-input-container">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="email@example.com">
+            </div>
+
+            <div class="login-input-container">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="password">
+            </div>
+
+            <div class="login-input-container">
+                <label for="confirm-password">Confirm<br>Password</label>
+                <input type="password" name="confirm-password" id="confirm-password" placeholder="confirm password">
+            </div>
+
+            <span class="login-container-buttons">
+                <button type="button" id="signup-button">Sign Up</button>
+            </span>
+
+            <div class="additional-links">
+                Already have an account? <a href="login.html">Login</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

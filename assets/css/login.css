@@ -1,0 +1,120 @@
+main {
+    margin: auto;
+    width: 60%;   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container .login-input-container {
+    display: flex;
+    justify-content: space-between; 
+    width: 100%;    
+    margin: .5rem 0;
+}
+
+.login-container label {
+    flex: 1;
+    text-align: left;  
+    margin-right: .5rem;
+
+    white-space: nowrap;
+}
+
+.login-container input {
+    font-size: .8em;
+
+    flex: 2;
+    width: 100%; 
+    height: 2rem; 
+    padding: .35rem; 
+    outline: none;
+    border: none;
+    border-radius: 6vw;
+    background-color: #121212;
+    color: darkgray;
+}
+
+.login-container-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+button {
+    font-size: .8em ;
+    width: auto;   
+    height: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    outline: none;
+    background-color: #121212;
+    border-radius: 2vw;
+    padding: 1rem;
+    margin: .3rem;
+    color: darkgray;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+button:hover {
+    background-color: #333;
+}
+
+.remember-me-container {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+}
+
+.remember-me-container input {
+    width: .8em;
+    height: .8em;
+    border: none;
+    outline: none;
+    margin-right: 0.5rem;
+    background-color: #121212;
+    border-radius: 4px;
+    appearance: none;
+}
+
+.remember-me-container label {
+    font-size: 0.5em;
+    color: #999;
+    white-space: nowrap;
+}
+
+.remember-me-container input:checked {
+    background-color: #333;
+}
+
+.additional-links {
+    color: darkgray;
+    font-size: .6em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: .2rem;
+    padding-right: .2em;
+}
+
+.additional-links a {
+    color: darkgray;
+    text-decoration: none;
+    font-size: .9em;
+    margin: .2rem 0;
+}
+
+.additional-links a:hover {
+    color: magenta;
+}

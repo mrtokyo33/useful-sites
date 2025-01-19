@@ -1,0 +1,124 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+* {
+    text-align: center;
+    text-shadow: -2px 2px 5px rgba(0, 0, 0, 0.6);
+    font-size: 2.5vw;
+    color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto Mono", monospace;
+    font-weight: 300;
+    background-color: #121212;
+}
+
+header {
+    background-color: #292b2f;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    padding: 1vw;
+    
+    margin-bottom: 3vw;
+}
+
+header > nav {
+    display: flex;
+    align-items: center;
+    align-content: center;
+}       
+
+.nav-ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+
+    list-style-type: none;
+}
+
+.nav-item {
+    padding-right: 2vw;
+}
+
+.nav-item > a {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 2vw;
+}
+
+.search-container {
+    height: 60%;
+    width: 50%;
+
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-start;
+
+    background: #1e1e1e;
+    border-radius: 5vw;
+
+    padding: 1%;
+}
+
+.search-container:hover input,
+.search-container input:focus {
+    width: 100%;
+}
+
+.search-container input {
+    width: 0%;
+    height: 1rem;
+
+    outline: none;
+    border: none;
+    font-size: .5em;
+    font-weight: 500;
+    background: transparent;
+    border-radius: 5vw;
+}
+
+#search-ico {
+    color: darkgray;
+    font-size: .6rem;
+}
+
+.login-icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15%;
+    aspect-ratio: 1 / 1;
+    background-color: #1e1e1e;
+    border-radius: 50%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+#login-ico {
+    color: darkgray;
+    font-size: .8rem;
+}
+
+.titles {
+    color: #ff00ff; 
+    padding: 1%;
+}
+
+
+main {
+    margin: auto;
+    width: 60%;
+    border-radius: 2vw;
+    background-color: #1e1e1e;
+    padding: 2%;
+}
