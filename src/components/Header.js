@@ -1,5 +1,4 @@
-import React from 'react';
-import styles from './css/Header.module.css';
+import styles from './css/Header.module.css'
 
 function Header() {
   return (
@@ -10,7 +9,7 @@ function Header() {
       
         <nav>
             <ul className={styles.navUl}>
-                <li className={styles.navItem}><a href="index.html" target="_self" rel="nofollow">Home</a></li>
+                <li className={styles.navItem}><a href="/" target="_self" rel="nofollow">Home</a></li> {/* Updated the href */}
                 <li className={styles.navItem}><a href="https://github.com/mrtokyo33/useful-sites" target="_blank" rel="noopener noreferrer">Repository</a></li>
             </ul>
         </nav>
@@ -22,7 +21,7 @@ function Header() {
             </div>
             <div className={styles.loginIconContainer}>
                 <a href="login.html">
-                <i className="fas fa-user"></i>
+                    <i className="fas fa-user"></i>
                 </a>
             </div>
         </div>

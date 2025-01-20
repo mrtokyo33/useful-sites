@@ -1,16 +1,21 @@
-import './App.css';
-import Header from './components/Header';
+import './App.css'
+import Header from './components/Header'
+import AddButton from './components/AddButton'
 
-function App() {
-  return (
-    <div className="App">
-      <Header/>
+import Signup from './components/Signup'
 
-      <main>
+function App(){
+    return (
+        <div className='App'>
+            <Header/>
 
-      </main>
-    </div>
-  )
+            <main>
+                <Signup/>
+            </main>
+
+            <AddButton/>
+        </div>
+    )
 }
 
 export default App
