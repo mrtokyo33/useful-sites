@@ -1,0 +1,12 @@
+.Home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Home main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}

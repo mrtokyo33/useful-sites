@@ -1,6 +1,6 @@
 .AddButtonContainer {
     margin: 0;
-    background-color: #ff00ff;
+    background-color: var(--primary-color);
     border-radius: 50%;
     width: 5vw; 
     height: 5vw; 
@@ -14,7 +14,7 @@
 }
 
 .AddButtonContainer:hover {
-    background-color: #ee00ee; 
+    background-color: var(--secondary-color); 
     transform: scale(1.2); 
 }
 

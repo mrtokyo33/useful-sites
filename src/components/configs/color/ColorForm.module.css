@@ -1,14 +1,27 @@
-.ResetTitle {
+.colorFormContainer {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.ColorTitle {
     color: var(--primary-color);
     padding-bottom: 1.5%;
     text-align: center;
+}
+
+.fieldsContainer {
+    max-height: 400px; 
+    overflow-y: auto;  
+    padding: 1rem;
 }
 
 .fields {
     display: flex;
     align-items: center;
     padding: 1.5%;
+    margin-bottom: .5rem;
     width: 100%; 
+    justify-content: space-between;
 }
 
 .fields label {
@@ -21,27 +34,14 @@
 }
 
 .fields input {
-    width: 50%;
-    height: 1.5rem;
-    font-size: 0.8rem;
     border: none;
-    outline: none;
-    background-color: var(--bg);
-    border-radius: 3vw;
-    padding: 0.8rem;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .fields input:hover {
-    background-color: var(--btn);
-    transform: scale(1.02);
+    transform: scale(1.1);
 }
 
-.fields input:focus {
-    background-color: var(--btn);
-    transform: scale(1.05);
-    outline: 2px solid var(--primary-color);
-}
 
 .submitField {
     display: flex;
@@ -51,9 +51,16 @@
 }
 
 .submit {
-    width: 35%;
+    width: auto;
+    margin: 1%;
+    padding: 2%;
     height: 1.2rem;
+
     font-size: .8rem;
+
+    display: flex;
+    align-items: center;
+    
     border: none;
     outline: none;
     border-radius: 2vw;
@@ -64,27 +71,6 @@
 .submit:hover {
     transform: scale(1.1);
     background: var(--secondary-color);
-}
-
-.resetPasswordLink {
-    text-align: center;
-    margin-top: 1rem;
-}
-
-.resetPasswordLink p {
-    font-size: .8rem;
-}
-
-.resetPassword {
-    color: var(--primary-color);
-    font-weight: 600;
-    text-decoration: none;
-    transition: transform 0.3s ease;
-}
-
-.resetPassword:hover {
-    text-decoration: underline;
-    transform: scale(1.1);
 }
 
 .warning {

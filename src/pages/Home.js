@@ -1,10 +1,35 @@
-import AddButton from '../components/AddButton'
+import styles from './css/Home.module.css'
+
+import AddButton from '../components/home/AddButton'
+import Item from '../components/home/Item'
 
 function Home(){
     return (
-        <div>
+        <div className={styles.Home}>
             <main>
-
+                <Item />
+                <Item />
+                <Item />
+                <Item />
+                <Item />
+                <Item />
+                <Item />
+                <Item />
+                <Item />
+                <Item />
+                <Item />
+                <Item />
+                <Item />
+                <Item />
+                <Item />
+                <Item />
+                <Item />
+                <Item />
+                <Item />
+                <Item />
+                <Item />
+                <Item />
+                <Item />
             </main>
 
             <AddButton/>

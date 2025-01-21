@@ -4,7 +4,7 @@
     left: 10%;
     width: 80vw; 
     height: 80vh;
-    background-color: #1b1a1a;
+    background-color: var(--panel-color);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -12,7 +12,6 @@
     align-items: center;
     padding: 3%;
     z-index: 1000;
-    color: white;
 
     overflow: auto;
 }
@@ -23,7 +22,7 @@
 }
 
 .header h1 {
-    color: #ff00ff;
+    color: var(--primary-color);
     padding-bottom: 1.5%;
     font-size: 1.2rem;
     text-align: center;
@@ -41,14 +40,14 @@
     aspect-ratio: 1 / 1;
 
     border-radius: 50%;
-    background: #ff00ff;
+    background: var(--primary-color);
 
     transition: transform 0.3s ease;
 }
 
 .header button:hover{
     transform: scale(1.1);
-    background: #ee00ee;
+    background: var(--secondary-color);
 }
 
 .fields {
@@ -59,7 +58,7 @@
 }
 
 .fields label {
-    color: white;
+    color: var(--text-color);
     font-weight: 600;
     margin-right: 1rem;
     font-size: .8rem;
@@ -73,7 +72,7 @@
     font-size: .8rem;
     border: none;
     outline: none;
-    background-color: #121212;
+    background-color: var(--bg);
     border-radius: 3vw;
     padding: 0.8rem;
     transition: background-color 0.3s ease, transform 0.3s ease;
@@ -84,9 +83,9 @@
 }
 
 .fields input:focus {
-    background-color: #292929;
+    background-color: var(--btn);
     transform: scale(1.05);
-    outline: 2px solid #ff00ff;
+    outline: 2px solid var(--primary-color);
 }
 
 .submitField {
@@ -103,14 +102,14 @@
     border: none;
     outline: none;
     border-radius: 3vw;
-    background: #ff00ff;
+    background: var(--primary-color);
     transition: transform 0.3s ease, background-color 0.3s ease;
     cursor: pointer;
 }
 
 .submit:hover {
     transform: scale(1.1);
-    background: #ee00ee;
+    background: var(--secondary-color);
 }
 
 .warning {
