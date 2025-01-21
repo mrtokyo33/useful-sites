@@ -1,0 +1,148 @@
+ul {
+    display: flex;
+    flex-wrap: wrap;  
+    justify-content: center;
+    gap: 10px;       
+    padding: 0;   
+    list-style-type: none; 
+}
+
+:root {
+    --background-color: #1e1e1e;
+}
+
+header {
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vw;
+    margin-bottom: 3vw;
+}
+
+.logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.logo h1 {
+    color: #ff00ff; 
+}
+
+.navUl {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.navItem {
+    padding-right: 2vw;
+}
+
+.navItem a {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 2vw;
+    color: white;
+    transition: transform 0.3s ease, color 0.3s ease;
+    display: inline-block; 
+}
+
+.navItem a:hover {
+    transform: scale(1.1); 
+    color: #ff00ff; 
+}
+
+.searchAndLogin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.searchContainer {
+    display: flex;
+    align-items: center;
+    background: #121212;
+    border-radius: 5vw;
+    padding: 1%;
+    width: 15vw;
+    transform-origin: center;
+    transition: width 0.3s ease;
+    transition: transform 0.3s ease;
+}
+
+.searchContainer:hover {
+    transform: scale(1.1);
+}
+
+.searchContainer input {
+    width: 0;
+    height: 1rem;
+    outline: none;
+    border: none;
+    font-size: 0.5em;
+    font-weight: 500;
+    background: transparent;
+    border-radius: 5vw;
+    transition: width 0.3s ease;
+}
+
+.searchContainer:hover input,
+.searchContainer input:focus {
+    width: 100%;
+}
+
+.searchContainer i {
+    color: darkgray;
+    font-size: 0.6rem;
+}
+
+.loginIconContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.5rem; 
+    height: 1.5rem;
+    aspect-ratio: 1 / 1;
+    background-color: #121212;
+    border-radius: 50%;
+    margin-left: 3.5%;
+    margin-right: 3%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.loginIconContainer i {
+    color: darkgray;
+    font-size: .9rem; 
+}
+
+.loginIconContainer:hover {
+    transform: scale(1.2);
+}
+
+.barsIconContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.5rem; 
+    height: 1.5rem;
+    aspect-ratio: 1 / 1;
+    background-color: #121212;
+    border-radius: 50%;
+    margin-right: 3%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.barsIconContainer i {
+    color: darkgray;
+    font-size: .9rem; 
+}
+
+.barsIconContainer:hover {
+    transform: scale(1.2);
+}
