@@ -11,6 +11,12 @@
     padding-bottom: 3%;
 }
 
+.configurationList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .titleContainer h1 {
     color: var(--primary-color);
     margin-right: 2%;

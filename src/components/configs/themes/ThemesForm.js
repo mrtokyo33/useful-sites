@@ -70,6 +70,7 @@ function ThemesForm() {
   const selectTheme = (themeTitle) => {
     setSelectedTheme(themeTitle)
     themeService.saveSelectedTheme(themeTitle)
+    window.location.reload()
   }
 
   const deleteTheme = (themeTitle) => {

@@ -12,6 +12,9 @@
 
     --text-color: darkgray;
     --shadow-color: rgba(0, 0, 0, 0.2);
+
+
+    -font: "Roboto Mono";
 }
 
 * {
@@ -26,7 +29,7 @@
 }
 
 body {
-    font-family: "Roboto Mono", monospace;
+    font-family: var(--font), monospace;
     font-weight: 300;
     background-color: var(--bg); 
     color: var(--text-color); 

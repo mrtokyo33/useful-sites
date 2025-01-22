@@ -1,9 +1,11 @@
-.Home .categoryHeader {
+.Home .categoryHeader, .Home .subcategoryHeader {
     display: flex;
     justify-content: space-between;
+    border-radius: 2vw;
     align-items: center;
-    width: 100%;
-    margin-bottom: 10px;
+    width: 70vw;
+    height: 2rem;
+    margin: 0 auto 10px; 
 }
 
 .Home .categoryText {
@@ -14,13 +16,12 @@
     background-color: var(--secondary-color);
 }
 
-.subcategoryHeader button i{
+.subcategoryHeader button i {
     margin-right: 2vw;
-
     transition: transform 0.3s ease;
 }
 
-.subcategoryHeader button i:hover{
+.subcategoryHeader button i:hover {
     color: red;
     transform: scale(1.2);
 }
@@ -29,12 +30,12 @@
     background-color: var(--primary-color);
 }
 
-.categoryHeader button i{
+.categoryHeader button i {
     margin-right: 2vw;
     transition: transform 0.3s ease;
 }
 
-.categoryHeader button i:hover{
+.categoryHeader button i:hover {
     color: red;
     transform: scale(1.2);
 }

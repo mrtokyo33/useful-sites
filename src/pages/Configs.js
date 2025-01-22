@@ -4,6 +4,7 @@ import styles from './css/Configs.module.css';
 import ConfigItem from '../components/configs/configItem';
 import ColorForm from '../components/configs/color/ColorForm';
 import ThemesForm from '../components/configs/themes/ThemesForm';
+import FontsForm from '../components/configs/fonts/FontsForm';
 
 function Configs({ colors, onColorChange, onResetColors }) {
   const [selectedConfig, setSelectedConfig] = useState(null);
@@ -14,7 +15,8 @@ function Configs({ colors, onColorChange, onResetColors }) {
 
   const configComponents = {
     color: <ColorForm colors={colors} onColorChange={onColorChange} onResetColors={onResetColors} />,
-    themes: <ThemesForm />
+    themes: <ThemesForm />,
+    fonts: <FontsForm />
   };
 
   return (
@@ -29,6 +31,7 @@ function Configs({ colors, onColorChange, onResetColors }) {
             <ul className={styles.configurationList}>
               <ConfigItem icon="fa fa-paint-brush" text="Color Configuration" configKey="color" isSelected={selectedConfig === 'color'} onSelect={handleSelectConfig} />
               <ConfigItem icon="fa-solid fa-palette" text="Themes" configKey="themes" isSelected={selectedConfig === 'themes'} onSelect={handleSelectConfig} />
+              <ConfigItem icon="fa fa-font" text="Fonts" configKey="fonts" isSelected={selectedConfig === 'fonts'} onSelect={handleSelectConfig} />
             </ul>
           </span>
           <span className={styles.rightConfigs}>
