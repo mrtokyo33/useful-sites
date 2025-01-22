@@ -1,6 +1,5 @@
 .ConfigsContainer {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
@@ -8,8 +7,7 @@
 .titleContainer {
     display: flex;
     justify-content: center;
-    align-items: center;  
-    
+    align-items: center;
     padding-bottom: 3%;
 }
 
@@ -20,7 +18,8 @@
 
 .titleContainer i {
     color: var(--primary-color);
-    transition: transform 2s ease;
+    transition: transform 0.3s ease, color 0.3s ease;
+    transform-origin: center;
 }
 
 .titleContainer i:hover {
@@ -29,44 +28,22 @@
 
 .Configs {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
     width: 100%;
     height: 60vh;
 }
 
 .leftConfigs {
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
     justify-content: center;
-
+    align-items: flex-start;
     width: 30%;
-    height: 100%;
-}
-
-.leftConfigs ul li {
-    font-weight: bold;
-    list-style-type: none;
-    cursor: pointer;
-}
-
-.leftConfigs ul li:hover {
-    text-decoration: underline;
-}
-
-.selected {
-    color: var(--primary-color); 
 }
 
 
 .rightConfigs {
     display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: center;
-
+    align-items: center;
     width: 70%;
     height: 100%;
 }
-
