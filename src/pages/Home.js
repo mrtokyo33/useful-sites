@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { v4 as uuidv4 } from 'uuid'
-import Item from '../components/home/Item'
 import AddButton from '../components/home/AddButton'
+import Item from '../components/home/Item'
 import styles from './css/Home.module.css'
 
 function Home() {
@@ -13,35 +12,95 @@ function Home() {
   }, [])
 
   const handleAddLink = (newLink) => {
-    if (!newLink.title || !newLink.link || !newLink.category || !newLink.subcategory) {
-      alert('Please fill in all fields.')
+    if (!newLink.title || !newLink.link) {
+      alert('Please fill in all fields')
       return
     }
-    const linkWithId = { ...newLink, id: uuidv4() }
-    const updatedLinks = [...links, linkWithId]
-    setLinks(updatedLinks)
+
+    const updatedLinks = [...links, newLink]
     localStorage.setItem('links', JSON.stringify(updatedLinks))
+    setLinks(updatedLinks)
   }
 
   const handleDelete = (id) => {
     const updatedLinks = links.filter(link => link.id !== id)
-    setLinks(updatedLinks)
     localStorage.setItem('links', JSON.stringify(updatedLinks))
+    setLinks(updatedLinks)
   }
+
+  const handleDeleteCategory = (category) => {
+    const updatedLinks = links.filter(link => link.category !== category)
+    localStorage.setItem('links', JSON.stringify(updatedLinks))
+    setLinks(updatedLinks)
+  }
+
+  const categorizedLinks = links.reduce((acc, link) => {
+    const category = link.category || 'uncategorized'
+    const subcategory = link.subcategory || 'uncategorized'
+
+    if (!acc[category]) acc[category] = {}
+    if (!acc[category][subcategory]) acc[category][subcategory] = []
+    acc[category][subcategory].push(link)
+
+    return acc
+  }, {})
 
   return (
     <div className={styles.Home}>
       <main>
-        {links.map((link) => (
-          <Item
-            key={link.id}
-            id={link.id}
-            title={link.title}
-            link={link.link}
-            category={link.category}
-            subcategory={link.subcategory}
-            onDelete={() => handleDelete(link.id)} 
-          />
+        {categorizedLinks['uncategorized'] && categorizedLinks['uncategorized']['uncategorized'] && (
+          <ul>
+            {categorizedLinks['uncategorized']['uncategorized'].map(link => (
+              <Item
+                key={link.id}
+                id={link.id}
+                title={link.title}
+                link={link.link}
+                category={link.category}
+                subcategory={link.subcategory}
+                onDelete={() => handleDelete(link.id)}
+              />
+            ))}
+          </ul>
+        )}
+        {Object.keys(categorizedLinks).map(category => (
+          category !== 'uncategorized' && (
+            <div key={category}>
+              <div className={styles.categoryHeader}>
+                <div className={styles.categoryText}>
+                  <h2>{category}</h2>
+                </div>
+                <button className={styles.deleteCategoryButton} onClick={() => handleDeleteCategory(category)}>
+                  <i className="fa fa-trash"></i>
+                </button>
+              </div>
+              <ul>
+                {Object.keys(categorizedLinks[category]).map(subcategory => (
+                  <li key={subcategory}>
+                    {subcategory !== 'uncategorized' && (
+                      <div className={styles.subcategoryHeader}>
+                        <h3>{subcategory}</h3>
+                        <button className={styles.deleteCategoryButton} onClick={() => handleDeleteCategory(subcategory)}>
+                          <i className="fa fa-trash"></i>
+                        </button>
+                      </div>
+                    )}
+                    {categorizedLinks[category][subcategory].map(link => (
+                      <Item
+                        key={link.id}
+                        id={link.id}
+                        title={link.title}
+                        link={link.link}
+                        category={link.category}
+                        subcategory={link.subcategory}
+                        onDelete={() => handleDelete(link.id)}
+                      />
+                    ))}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )
         ))}
       </main>
       <AddButton onAdd={handleAddLink} />

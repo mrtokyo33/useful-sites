@@ -1,12 +1,99 @@
-.Home {
+.Home .categoryHeader {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
-.Home main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+.Home .categoryText {
+    flex-grow: 1;
+}
+
+.subcategoryHeader {
+    background-color: var(--secondary-color);
+}
+
+.subcategoryHeader button i{
+    margin-right: 2vw;
+
+    transition: transform 0.3s ease;
+}
+
+.subcategoryHeader button i:hover{
+    color: red;
+    transform: scale(1.2);
+}
+
+.categoryHeader {
+    background-color: var(--primary-color);
+}
+
+.categoryHeader button i{
+    margin-right: 2vw;
+    transition: transform 0.3s ease;
+}
+
+.categoryHeader button i:hover{
+    color: red;
+    transform: scale(1.2);
+}
+
+.Home h2 {
+    padding: 15px 20px;
+    color: var(--text-color);
+    font-size: 1.6rem;
+    border-radius: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+.Home h3 {
+    padding: 12px 20px;
+    color: var(--text-color);
+    font-size: 1.4rem;
+    border-radius: 8px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.Home ul {
+    list-style-type: none;
+    padding-left: 0;
+    width: 100%;
+}
+
+.Home li {
+    margin-bottom: 20px;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+}
+
+.Home li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.Home button.deleteCategoryButton {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.Home button.deleteCategoryButton i {
+    font-size: 1.5rem;
+}
+
+.Home button.deleteCategoryButton:hover {
+    color: red;
+}
+
+.Home i {
+    padding: 3%;
 }
