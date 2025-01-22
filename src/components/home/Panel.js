@@ -23,7 +23,7 @@ function Panel({ event }) {
 
   const handleCategoryChange = (e) => {
     setSelectedCategory(e.target.value)
-    setSelectedSubcategory('') // Reset subcategory when category changes
+    setSelectedSubcategory('')
   }
 
   const handleSubcategoryChange = (e) => {

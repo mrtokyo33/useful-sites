@@ -23,15 +23,47 @@ function Home() {
   }
 
   const handleDelete = (id) => {
+    localStorage.removeItem(id)
+
     const updatedLinks = links.filter(link => link.id !== id)
     localStorage.setItem('links', JSON.stringify(updatedLinks))
     setLinks(updatedLinks)
   }
 
   const handleDeleteCategory = (category) => {
+    const linksToDelete = links.filter(link => link.category === category)
+
+    linksToDelete.forEach(link => handleDelete(link.id))
+
     const updatedLinks = links.filter(link => link.category !== category)
     localStorage.setItem('links', JSON.stringify(updatedLinks))
     setLinks(updatedLinks)
+
+    const categories = JSON.parse(localStorage.getItem('categories')) || []
+    const updatedCategories = categories.filter(cat => cat.title !== category)
+    localStorage.setItem('categories', JSON.stringify(updatedCategories))
+  }
+
+  const handleDeleteSubCategory = (subcategory) => {
+    const linksWithoutSubcategory = links.filter(link => link.subcategory !== subcategory)
+  
+    links
+      .filter(link => link.subcategory === subcategory)
+      .forEach(link => handleDelete(link.id))
+  
+    localStorage.setItem('links', JSON.stringify(linksWithoutSubcategory))
+  
+    const categories = JSON.parse(localStorage.getItem('categories')) || []
+  
+    categories.forEach(category => {
+      if (category.subcategories && category.subcategories.includes(subcategory)) {
+        category.subcategories = category.subcategories.filter(subcat => subcat !== subcategory)
+      }
+    })
+  
+    localStorage.setItem('categories', JSON.stringify(categories))
+  
+    setLinks(linksWithoutSubcategory)
   }
 
   const categorizedLinks = links.reduce((acc, link) => {
@@ -80,7 +112,7 @@ function Home() {
                     {subcategory !== 'uncategorized' && (
                       <div className={styles.subcategoryHeader}>
                         <h3>{subcategory}</h3>
-                        <button className={styles.deleteCategoryButton} onClick={() => handleDeleteCategory(subcategory)}>
+                        <button className={styles.deleteCategoryButton} onClick={() => handleDeleteSubCategory(subcategory)}>
                           <i className="fa fa-trash"></i>
                         </button>
                       </div>
