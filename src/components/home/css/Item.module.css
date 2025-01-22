@@ -1,6 +1,6 @@
 .itemContainer {
-    width: 15vw;
-    height: 15vw;
+    width: 12vw;
+    height: 12vw;
     background-color: var(--background-color);
     border: .1vw solid var(--text-color);
     display: flex; 

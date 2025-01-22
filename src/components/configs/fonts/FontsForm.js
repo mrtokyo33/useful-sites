@@ -1,12 +1,12 @@
-import { useState } from 'react';
-import styles from './FontsForm.module.css';
-import { useFontManager } from '../../../services/useFontManager';
-import FontsItem from './components/FontsItem';
-import AddFont from './components/AddFont';
+import { useState } from 'react'
+import styles from './FontsForm.module.css'
+import { useFontManager } from '../../../services/useFontManager'
+import FontsItem from './components/FontsItem'
+import AddFont from './components/AddFont'
 
 function FontsForm() {
-  const { fonts, handleFontChange, selectedFont, addFont, removeFont } = useFontManager();
-  const [isAddFontOpen, setIsAddFontOpen] = useState(false);
+  const { fonts, handleFontChange, selectedFont, addFont, removeFont } = useFontManager()
+  const [isAddFontOpen, setIsAddFontOpen] = useState(false)
 
   return (
     <div className={styles.FontsForm}>
@@ -27,7 +27,7 @@ function FontsForm() {
       </button>
       {isAddFontOpen && <AddFont event={() => setIsAddFontOpen(false)} addFont={addFont} />}
     </div>
-  );
+  )
 }
 
-export default FontsForm;
+export default FontsForm

@@ -1,23 +1,23 @@
-import { useState } from 'react';
-import styles from './AddFont.module.css';
+import { useState } from 'react'
+import styles from './AddFont.module.css'
 
 function AddFont({ event, addFont }) {
-  const [fontName, setFontName] = useState('');
-  const [fontUrl, setFontUrl] = useState('');
-  const [fontFamily, setFontFamily] = useState('');
+  const [fontName, setFontName] = useState('')
+  const [fontUrl, setFontUrl] = useState('')
+  const [fontFamily, setFontFamily] = useState('')
 
   const handleAddFont = (e) => {
-    e.preventDefault();
-    if (!fontName || !fontUrl || !fontFamily) return;
+    e.preventDefault()
+    if (!fontName || !fontUrl || !fontFamily) return
 
     addFont({
       id: Date.now(),
       name: fontName,
       family: fontFamily,
-      importUrl: fontUrl,  // Certifique-se de que a URL de importação seja passada
-    });
-    event();
-  };
+      importUrl: fontUrl,
+    })
+    event()
+  }
 
   return (
     <div className={styles.panelContainer}>
@@ -66,7 +66,7 @@ function AddFont({ event, addFont }) {
         </button>
       </form>
     </div>
-  );
+  )
 }
 
-export default AddFont;
+export default AddFont
