@@ -9,4 +9,6 @@ export const changeTheme = (theme) => {
 
   const root = document.documentElement
   root.style.setProperty('--text-color', text)
+  root.style.setProperty('--primary-color', primary)
+  root.style.setProperty('--background-color', background)
 }

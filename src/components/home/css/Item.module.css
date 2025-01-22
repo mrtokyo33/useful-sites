@@ -38,3 +38,31 @@
 .itemContainer:hover a{
     color: var(--primary-color);
 }
+
+.itemContainer {
+    position: relative;
+}
+
+.deleteButton {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: color 0.3s ease;
+}
+
+.deleteButton:hover {
+    color: red;
+}
+
+.deleteButton i {
+    font-size: .8rem;
+    transition: color 0.3s ease;
+}
+
+.deleteButton:hover i {
+    color: red;
+}

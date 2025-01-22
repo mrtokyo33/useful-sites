@@ -11,12 +11,12 @@
     --btn: #292929;
 
     --text-color: darkgray;
-    --shadow-color: rgba(0, 0, 0, 0.6);
+    --shadow-color: rgba(0, 0, 0, 0.2);
 }
 
 * {
     text-align: center;
-    text-shadow: -2px 2px 5px var(--shadow-color);
+    text-shadow: 0px 0px .5vw var(--shadow-color);
     font-size: 2vw;
     color: var(--text-color);
     margin: 0;

@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 import { changeBackgroundColor } from '../components/configs/color/utils/changeBackgroundColor'
 import { changePrimaryColor } from '../components/configs/color/utils/changePrimaryColor'
+import { themeService } from './themeService'
 
 const defaultColors = {
   primaryColor: "#ff00ff",
-  secondaryColor: "#ee00ee",
   backgroundColor: "#121212",
   textColor: "#D3D3D3",
 }
@@ -15,9 +15,37 @@ export const useColorManager = () => {
     return savedColors ? JSON.parse(savedColors) : defaultColors
   }
 
+  const getSelectedTheme = themeService.getSelectedTheme()
   const [colors, setColors] = useState(loadColorsFromStorage)
 
   useEffect(() => {
+    if (getSelectedTheme === "None") {
+      return
+    }
+
+    const theme = themeService.getStoredThemes().find(theme => theme.title === getSelectedTheme)
+    if (theme) {
+      const { primaryColor, backgroundColor, textColor } = theme.colors
+      const newColors = { primaryColor, backgroundColor, textColor }
+      setColors(newColors)
+      localStorage.setItem('colors', JSON.stringify(newColors))
+
+      const root = document.documentElement
+      root.style.setProperty('--primary-color', primaryColor)
+      root.style.setProperty('--secondary-color', "#ee00ee")
+      root.style.setProperty('--bg', backgroundColor)
+      root.style.setProperty('--text-color', textColor)
+
+      changeBackgroundColor(backgroundColor)
+      changePrimaryColor(primaryColor)
+    }
+  }, [getSelectedTheme])
+
+  useEffect(() => {
+    if (getSelectedTheme !== "None") {
+      themeService.saveSelectedTheme("None")
+    }
+
     if (colors) {
       const root = document.documentElement
       root.style.setProperty('--primary-color', colors.primaryColor)
@@ -28,7 +56,7 @@ export const useColorManager = () => {
       changeBackgroundColor(colors.backgroundColor)
       changePrimaryColor(colors.primaryColor)
     }
-  }, [colors])
+  }, [colors, getSelectedTheme])
 
   const resetColors = () => {
     setColors(defaultColors)

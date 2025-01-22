@@ -1,31 +1,117 @@
+import { useState, useEffect } from 'react'
 import styles from './ThemesForm.module.css'
 import ThemeItem from './components/ThemeItem'
+import CreateTheme from './components/CreateTheme'
+import { themeService } from '../../../services/themeService'
+import { useColorManager } from '../../../services/useColorManager'
 
-import hacker101 from './jsons/hacker101.json'
-import defaultTheme from './jsons/default.json'
-
-function ThemesForm(){
-    function createTheme(e){
-        e.preventDefault()
-        console.log('cu')
+const defaultThemes = [
+    { 
+      title: 'Default', 
+      colors: { primaryColor: '#ff00ff', backgroundColor: '#121212', textColor: '#a9a9a9' } 
+    },
+    { 
+      title: 'Dark Mode', 
+      colors: { primaryColor: '#BB86FC', backgroundColor: '#121212', textColor: '#E0E0E0' } 
+    },
+    { 
+      title: 'Light Mode', 
+      colors: { primaryColor: '#7F56D9', backgroundColor: '#FAFAFA', textColor: '#333333' } 
+    },
+    { 
+      title: 'Ocean Breeze', 
+      colors: { primaryColor: '#00BCD4', backgroundColor: '#0A1418', textColor: '#80CBC4' } 
+    },
+    { 
+      title: 'Retro Vibes', 
+      colors: { primaryColor: '#FF4081', backgroundColor: '#1A1214', textColor: '#B0BEC5' } 
     }
+  ]  
+  
 
-    return (
-        <div className={styles.ThemesFormContainer}>
-            <h1 className={styles.ThemesTitle}>Select the your Theme</h1>
-            
-            <div className={styles.themes}>
-                <ThemeItem theme={defaultTheme}/>
-                <ThemeItem theme={hacker101}/>
-            </div>
+function ThemesForm() {
+  const [showPanel, setShowPanel] = useState(false)
+  const [themes, setThemes] = useState([])
+  const [selectedTheme, setSelectedTheme] = useState(null)
+  const { colors, handleColorChange } = useColorManager()
 
-            <div className={styles.Buttons}>
-                <form onSubmit={createTheme}>
-                    <button type='submit' className={styles.submit}>Create Theme</button>
-                </form>
-            </div>
-        </div>
-    )
+  useEffect(() => {
+    let storedThemes = themeService.getStoredThemes()
+    storedThemes = [
+      ...defaultThemes,
+      ...storedThemes.filter(
+        theme => !defaultThemes.some(defaultTheme => defaultTheme.title === theme.title)
+      )
+    ]
+    themeService.saveThemes(storedThemes)
+    setThemes(storedThemes)
+    const currentTheme = themeService.getSelectedTheme()
+    setSelectedTheme(currentTheme)
+  }, [])
+
+  useEffect(() => {
+    if (selectedTheme === "None") {
+      handleColorChange(colors)
+    }
+  }, [selectedTheme, colors, handleColorChange])
+
+  const createTheme = (title, colors) => {
+    const newTheme = { title, colors }
+    const updatedThemes = [...themes, newTheme]
+    setThemes(updatedThemes)
+    themeService.saveThemes(updatedThemes)
+    setShowPanel(false)
+  }
+
+  const closePanel = () => {
+    setShowPanel(false)
+  }
+
+  const selectTheme = (themeTitle) => {
+    setSelectedTheme(themeTitle)
+    themeService.saveSelectedTheme(themeTitle)
+  }
+
+  const deleteTheme = (themeTitle) => {
+    if (defaultThemes.some(theme => theme.title === themeTitle)) return
+    const updatedThemes = themes.filter(theme => theme.title !== themeTitle)
+    setThemes(updatedThemes)
+    themeService.saveThemes(updatedThemes)
+  }
+
+  const createThemeFormSubmit = (e) => {
+    e.preventDefault()
+    setShowPanel(true)
+  }
+
+  return (
+    <div className={styles.ThemesFormContainer}>
+      <h1 className={styles.ThemesTitle}>Select your Theme</h1>
+
+      <div className={styles.themes}>
+        {themes.map((theme, index) => (
+          <ThemeItem
+            key={index}
+            theme={theme}
+            onSelectTheme={selectTheme}
+            isSelected={theme.title === selectedTheme}
+            onDelete={deleteTheme}
+            disableDelete={defaultThemes.some(defaultTheme => defaultTheme.title === theme.title)}
+          />
+        ))}
+      </div>
+
+      <div className={styles.Buttons}>
+        <form onSubmit={createThemeFormSubmit}>
+          <button type="submit" className={styles.submit}>
+            Create Theme
+          </button>
+        </form>
+      </div>
+
+      {showPanel && <CreateTheme event={closePanel} onCreateTheme={createTheme} />}
+    </div>
+  )
 }
 
 export default ThemesForm
