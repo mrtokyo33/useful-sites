@@ -52,6 +52,7 @@
     top: 0;
     right: 0;
     transition: color 0.3s ease;
+    margin: 5%;
 }
 
 .deleteButton:hover {

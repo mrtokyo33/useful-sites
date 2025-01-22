@@ -6,14 +6,12 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup"; 
 import Forgot from "./pages/Forgot";
 import Configs from './pages/Configs';
-import { useColorManager } from './services/useColorManager';  // Serviço de cores
-import { useFontManager } from './services/useFontManager';    // Serviço de fontes
+import { useColorManager } from './services/useColorManager'; 
+import { useFontManager } from './services/useFontManager';  
 
 function App() {
-  // Gerenciamento de cores
   const { colors, handleColorChange, resetColors } = useColorManager();
 
-  // Gerenciamento de fontes
   const { fonts, selectedFont, handleFontChange } = useFontManager();
 
   return (

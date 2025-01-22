@@ -74,9 +74,9 @@ function Home() {
                   <i className="fa fa-trash"></i>
                 </button>
               </div>
-              <ul>
+              <div>
                 {Object.keys(categorizedLinks[category]).map(subcategory => (
-                  <li key={subcategory}>
+                  <div key={subcategory}>
                     {subcategory !== 'uncategorized' && (
                       <div className={styles.subcategoryHeader}>
                         <h3>{subcategory}</h3>
@@ -85,20 +85,22 @@ function Home() {
                         </button>
                       </div>
                     )}
-                    {categorizedLinks[category][subcategory].map(link => (
-                      <Item
-                        key={link.id}
-                        id={link.id}
-                        title={link.title}
-                        link={link.link}
-                        category={link.category}
-                        subcategory={link.subcategory}
-                        onDelete={() => handleDelete(link.id)}
-                      />
-                    ))}
-                  </li>
+                    <ul>
+                      {categorizedLinks[category][subcategory].map(link => (
+                        <Item
+                          key={link.id}
+                          id={link.id}
+                          title={link.title}
+                          link={link.link}
+                          category={link.category}
+                          subcategory={link.subcategory}
+                          onDelete={() => handleDelete(link.id)}
+                        />
+                      ))}
+                    </ul>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
           )
         ))}
