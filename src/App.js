@@ -8,6 +8,9 @@ import Forgot from "./pages/Forgot";
 import Configs from './pages/Configs';
 import { useColorManager } from './services/useColorManager'; 
 import { useFontManager } from './services/useFontManager';  
+import initLocalStorage from './services/initLocalStorage';  
+
+initLocalStorage()
 
 function App() {
   const { colors, handleColorChange, resetColors } = useColorManager();
