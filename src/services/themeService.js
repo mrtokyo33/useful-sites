@@ -2,9 +2,9 @@ const defaultThemes = [
   {
     title: "Default",
     colors: {
-      primary: "#6200ea",
-      background: "#ffffff",
-      text: "#000000"
+      primary: "#ff00ff",
+      background: "#121212",
+      text: "#e0e0e0"
     }
   },
   {
@@ -41,7 +41,6 @@ const defaultThemes = [
   }
 ]
 
-
 const getStoredThemes = () => {
   const storedThemes = localStorage.getItem('themes')
   return storedThemes ? JSON.parse(storedThemes) : defaultThemes
@@ -57,6 +56,10 @@ const getSelectedTheme = () => {
 
 const saveSelectedTheme = (themeTitle) => {
   localStorage.setItem('selectedTheme', themeTitle)
+}
+
+if (!localStorage.getItem('themes')) {
+  saveThemes(defaultThemes)
 }
 
 export const themeService = {

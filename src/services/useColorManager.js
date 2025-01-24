@@ -12,13 +12,19 @@ const defaultColors = {
 export const useColorManager = () => {
   const loadColorsFromStorage = () => {
     const savedColors = localStorage.getItem('colors')
-    return savedColors ? JSON.parse(savedColors) : defaultColors
+    if (!savedColors) {
+      localStorage.setItem('colors', JSON.stringify(defaultColors)) // Agora sem erro
+      return defaultColors
+    }
+    return JSON.parse(savedColors)
   }
 
   const getSelectedTheme = themeService.getSelectedTheme()
   const [colors, setColors] = useState(loadColorsFromStorage)
 
   useEffect(() => {
+    if (!localStorage.getItem('colors')) localStorage.setItem('colors', JSON.stringify(defaultColors))
+
     if (getSelectedTheme === "None") {
       return
     }
@@ -49,7 +55,7 @@ export const useColorManager = () => {
     if (colors) {
       const root = document.documentElement
       root.style.setProperty('--primary-color', colors.primaryColor)
-      root.style.setProperty('--secondary-color', colors.secondaryColor)
+      root.style.setProperty('--secondary-color', "#ee00ee")
       root.style.setProperty('--bg', colors.backgroundColor)
       root.style.setProperty('--text-color', colors.textColor)
 

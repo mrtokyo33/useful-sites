@@ -4,9 +4,9 @@ import styles from './CreateTheme.module.css'
 function CreateTheme({ event, onCreateTheme }) {
     const [warning, setWarning] = useState()
     const [colors, setColors] = useState({
-        primaryColor: '#000000',
-        backgroundColor: '#ffffff',
-        textColor: '#000000',
+        primaryColor: '#ff00ff',
+        backgroundColor: '#121212',
+        textColor: '#e0e0e0',
     })
 
     const titleRef = useRef()
