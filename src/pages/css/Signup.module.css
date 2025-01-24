@@ -1,0 +1,98 @@
+.SignupTitle {
+    color: var(--primary-color);
+    padding-bottom: 1.5%;
+    text-align: center; 
+}
+
+.fields {
+    display: flex;
+    align-items: center; 
+    padding: 1.5%;
+    width: 100%;
+}
+
+.fields label {
+    color: var(--text-color);
+    font-weight: 600;
+    margin-right: 1rem; 
+    font-size: .9rem;
+    font-weight: bold;
+    width: 30%; 
+}
+
+.fields input {
+    width: 50%;
+    height: 1.5rem;
+    font-size: 0.8rem;
+    border: none;
+    outline: none;
+    background-color: var(--bg);
+    border-radius: 3vw;
+    padding: 0.8rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.fields input:hover {
+    background-color: var(--btn);
+    transform: scale(1.02);
+}
+
+.fields input:focus {
+    background-color: var(--btn);
+    transform: scale(1.05);
+    outline: 2px solid var(--primary-color);
+}
+
+
+.submitField {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem; 
+}
+
+.submit {
+    width: 15%; 
+    height: 1.5rem;
+    font-size: .8rem; 
+    
+    border: none;
+    outline: none;
+    border-radius: 2vw;
+    
+    background: var(--primary-color);
+
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.submit:hover {
+    transform: scale(1.1);
+    background: var(--secondary-color);
+}
+
+.warning {
+    align-self: flex-start;
+    font-size: .5rem;
+    color: red;
+    font-weight: bold;
+}
+
+.loginLinkContainer {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.loginLink {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.loginLinkContainer p {
+    font-size: .6rem;
+}
+
+.loginLink:hover{
+    text-decoration: underline;
+}

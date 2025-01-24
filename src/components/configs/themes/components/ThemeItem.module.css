@@ -1,0 +1,83 @@
+.ThemeItem {
+  width: 8vw;
+  height: 8vw;
+  aspect-ratio: 1 / 1;
+  border: 0.2vw solid var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  margin: 0.5vw;
+  transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+}
+
+.ThemeItem:hover {
+  transform: scale(1.1);
+}
+
+.Title {
+  position: absolute;
+  font-size: 0.6rem;
+  color: var(--text-color);
+  text-align: center;
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-word;
+  max-width: 90%;
+}
+
+.deleteButton {
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  margin-right: 5%;
+  transition: color 0.3s ease;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.deleteButton:hover {
+  color: red;
+}
+
+.deleteButton i {
+  font-size: 0.8rem;
+  transition: color 0.3s ease;
+}
+
+.deleteButton:hover i {
+  color: red;
+}
+
+@media (max-width: 1024px) {
+  .ThemeItem {
+      width: 12vw;
+      height: 12vw;
+  }
+
+  .Title {
+      font-size: 0.5rem;
+  }
+
+  .deleteButton i {
+      font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .ThemeItem {
+      width: 16vw;
+      height: 16vw;
+  }
+
+  .Title {
+      font-size: .6rem;
+  }
+
+  .deleteButton i {
+      font-size: 1.2rem;
+  }
+}

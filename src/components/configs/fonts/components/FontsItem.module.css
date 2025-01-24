@@ -1,0 +1,92 @@
+.FontsItem {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12vw;
+    height: 12vw;
+    aspect-ratio: 1 / 1;
+    margin: 2%;
+    border: 0.2vw solid var(--text-color);
+    transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+    overflow: hidden;
+}
+
+.FontsItem:hover {
+    transform: scale(1.1);
+}
+
+.FontsItem h1 {
+    font-size: 1rem;
+    z-index: 100;
+    position: absolute;
+    text-align: center;
+    white-space: normal;
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-word;
+    max-width: 90%;
+}
+
+.FontsItem button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: auto;
+    height: auto;
+    border: none;
+    outline: none;
+    background: transparent;
+    z-index: 101;
+    cursor: pointer;
+}
+
+.deleteButton i {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    margin-right: 5%;
+    transition: color 0.3s ease;
+    font-size: 0.8rem;
+}
+
+.deleteButton:hover {
+    color: red;
+}
+
+.deleteButton i:hover {
+    color: red;
+}
+
+@media (max-width: 1024px) {
+    .FontsItem {
+        width: 16vw;
+        height: 16vw;
+    }
+
+    .FontsItem h1 {
+        font-size: 0.9rem;
+    }
+
+    .deleteButton i {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .FontsItem {
+        width: 20vw;
+        height: 20vw;
+    }
+
+    .FontsItem h1 {
+        font-size: 0.8rem;
+        word-wrap: break-word;
+        word-break: break-word;
+    }
+
+    .deleteButton i {
+        font-size: 1.2rem;
+    }
+}

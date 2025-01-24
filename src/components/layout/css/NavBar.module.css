@@ -1,0 +1,209 @@
+ul {
+    display: flex;
+    flex-wrap: wrap;  
+    justify-content: center;
+    gap: 10px;       
+    padding: 0;   
+    list-style-type: none; 
+}
+
+header {
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vw;
+    margin-bottom: 3vw;
+}
+
+.logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.logo h1 {
+    color: var(--primary-color); 
+}
+
+.navUl {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.navItem {
+    padding-right: 2vw;
+}
+
+.navItem a {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 2vw;
+    color: var(--text-color);
+    transition: transform 0.3s ease, color 0.3s ease;
+    display: inline-block; 
+}
+
+.navItem a:hover {
+    transform: scale(1.1); 
+    color: var(--primary-color); 
+}
+
+.rigthHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.searchContainer {
+    display: flex;
+    align-items: center;
+    background: var(--bg);
+    border-radius: 5vw;
+    padding: 1%;
+    width: 15vw;
+    transform-origin: center;
+    transition: width 0.3s ease;
+    transition: transform 0.3s ease;
+    margin-right: 2vw;
+}
+
+.searchContainer:hover {
+    transform: scale(1.1);
+}
+
+.searchContainer input {
+    width: 0;
+    height: auto;
+    outline: none;
+    border: none;
+    font-size: 0.5em;
+    font-weight: 500;
+    background: transparent;
+    border-radius: 5vw;
+    transition: width 0.3s ease;
+}
+
+.searchContainer:hover input,
+.searchContainer input:focus {
+    width: 100%;
+}
+
+.searchContainer i {
+    color: var(--text-color);
+    font-size: 0.6rem;
+}
+
+.loginIconContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.5rem; 
+    height: auto;
+    aspect-ratio: 1 / 1;
+    background-color: var(--bg);
+    border-radius: 50%;
+    margin-left: 3.5%;
+    margin-right: 3%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.loginIconContainer i {
+    color: var(--text-color);
+    font-size: .9rem; 
+}
+
+.loginIconContainer:hover {
+    transform: scale(1.2);
+}
+
+.barsIconContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.5rem; 
+    height: auto;
+    aspect-ratio: 1 / 1;
+    background-color: var(--bg);
+    border-radius: 50%;
+    margin-right: 3%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.barsIconContainer i {
+    color: var(--text-color);
+    font-size: .9rem; 
+}
+
+.barsIconContainer:hover {
+    transform: scale(1.2);
+}
+
+@media (max-width: 1024px) {
+    header {
+        padding: 2vw;
+    }
+
+    .searchContainer {
+        width: 20vw;
+    }
+
+    .searchContainer i {
+        font-size: 0.8rem;
+    }
+
+    .loginIconContainer, .barsIconContainer {
+        width: 2rem;
+    }
+
+    .loginIconContainer i, .barsIconContainer i {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .searchContainer {
+        width: 25vw;
+    }
+
+    .searchContainer i {
+        font-size: 1rem;
+    }
+
+    .loginIconContainer, .barsIconContainer {
+        width: 2.5rem;
+    }
+
+    .loginIconContainer i, .barsIconContainer i {
+        font-size: 1.5rem;
+    }
+
+    .navItem a {
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 5vw;
+        color: var(--text-color);
+        transition: transform 0.3s ease, color 0.3s ease;
+        display: inline-block; 
+        margin-left: 20%;
+    }
+    
+    .navItem a:hover {
+        transform: scale(1.1); 
+        color: var(--primary-color); 
+    }
+
+    .searchContainer {
+        transform: scale(1.1);
+    }
+}
