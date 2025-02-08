@@ -6,30 +6,29 @@ import { themeService } from '../../../services/themeService'
 import { useColorManager } from '../../../services/useColorManager'
 
 const defaultThemes = [
-    { 
-      title: 'Default', 
-      colors: { primaryColor: '#ff00ff', backgroundColor: '#121212', textColor: '#a9a9a9' } 
-    },
-    { 
-      title: 'Dark Mode', 
-      colors: { primaryColor: '#BB86FC', backgroundColor: '#121212', textColor: '#E0E0E0' } 
-    },
-    { 
-      title: 'Light Mode', 
-      colors: { primaryColor: '#7F56D9', backgroundColor: '#FAFAFA', textColor: '#333333' } 
-    },
-    { 
-      title: 'Ocean Breeze', 
-      colors: { primaryColor: '#00BCD4', backgroundColor: '#0A1418', textColor: '#80CBC4' } 
-    },
-    { 
-      title: 'Retro Vibes', 
-      colors: { primaryColor: '#FF4081', backgroundColor: '#1A1214', textColor: '#B0BEC5' } 
-    }
-  ]  
-  
+  { 
+    title: 'Default', 
+    colors: { primaryColor: '#ff00ff', backgroundColor: '#121212', textColor: '#a9a9a9' }
+  },
+  { 
+    title: 'Dark Mode', 
+    colors: { primaryColor: '#BB86FC', backgroundColor: '#121212', textColor: '#E0E0E0' }
+  },
+  { 
+    title: 'Light Mode', 
+    colors: { primaryColor: '#7F56D9', backgroundColor: '#FAFAFA', textColor: '#333333' }
+  },
+  { 
+    title: 'Ocean Breeze', 
+    colors: { primaryColor: '#00BCD4', backgroundColor: '#0A1418', textColor: '#80CBC4' }
+  },
+  { 
+    title: 'Retro Vibes', 
+    colors: { primaryColor: '#FF4081', backgroundColor: '#1A1214', textColor: '#B0BEC5' }
+  }
+]
 
-function ThemesForm() {
+function ThemesForm () {
   const [showPanel, setShowPanel] = useState(false)
   const [themes, setThemes] = useState([])
   const [selectedTheme, setSelectedTheme] = useState(null)
@@ -39,9 +38,7 @@ function ThemesForm() {
     let storedThemes = themeService.getStoredThemes()
     storedThemes = [
       ...defaultThemes,
-      ...storedThemes.filter(
-        theme => !defaultThemes.some(defaultTheme => defaultTheme.title === theme.title)
-      )
+      ...storedThemes.filter(theme => !defaultThemes.some(defaultTheme => defaultTheme.title === theme.title))
     ]
     themeService.saveThemes(storedThemes)
     setThemes(storedThemes)
@@ -50,7 +47,7 @@ function ThemesForm() {
   }, [])
 
   useEffect(() => {
-    if (selectedTheme === "None") {
+    if (selectedTheme === 'None') {
       handleColorChange(colors)
     }
   }, [selectedTheme, colors, handleColorChange])
@@ -67,20 +64,24 @@ function ThemesForm() {
     setShowPanel(false)
   }
 
-  const selectTheme = (themeTitle) => {
-    setSelectedTheme(themeTitle)
-    themeService.saveSelectedTheme(themeTitle)
-    window.location.reload()
+  const selectTheme = themeTitle => {
+    const theme = themes.find(t => t.title === themeTitle)
+    if (theme) {
+      setSelectedTheme(themeTitle)
+      themeService.saveSelectedTheme(themeTitle)
+      localStorage.setItem('colors', JSON.stringify(theme.colors))
+      handleColorChange(theme.colors)
+    }
   }
 
-  const deleteTheme = (themeTitle) => {
+  const deleteTheme = themeTitle => {
     if (defaultThemes.some(theme => theme.title === themeTitle)) return
     const updatedThemes = themes.filter(theme => theme.title !== themeTitle)
     setThemes(updatedThemes)
     themeService.saveThemes(updatedThemes)
   }
 
-  const createThemeFormSubmit = (e) => {
+  const createThemeFormSubmit = e => {
     e.preventDefault()
     setShowPanel(true)
   }
@@ -88,7 +89,6 @@ function ThemesForm() {
   return (
     <div className={styles.ThemesFormContainer}>
       <h1 className={styles.ThemesTitle}>Select your Theme</h1>
-
       <div className={styles.themes}>
         {themes.map((theme, index) => (
           <ThemeItem
@@ -101,7 +101,6 @@ function ThemesForm() {
           />
         ))}
       </div>
-
       <div className={styles.Buttons}>
         <form onSubmit={createThemeFormSubmit}>
           <button type="submit" className={styles.submit}>
@@ -109,7 +108,6 @@ function ThemesForm() {
           </button>
         </form>
       </div>
-
       {showPanel && <CreateTheme event={closePanel} onCreateTheme={createTheme} />}
     </div>
   )

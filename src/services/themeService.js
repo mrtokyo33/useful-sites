@@ -1,43 +1,23 @@
 const defaultThemes = [
-  {
-    title: "Default",
-    colors: {
-      primary: "#ff00ff",
-      background: "#121212",
-      text: "#e0e0e0"
-    }
+  { 
+    title: 'Default', 
+    colors: { primaryColor: '#ff00ff', backgroundColor: '#121212', textColor: '#a9a9a9' }
   },
-  {
-    title: "Dark Mode",
-    colors: {
-      primary: "#BB86FC",
-      background: "#121212",
-      text: "#E0E0E0"
-    }
+  { 
+    title: 'Dark Mode', 
+    colors: { primaryColor: '#BB86FC', backgroundColor: '#121212', textColor: '#E0E0E0' }
   },
-  {
-    title: "Light Mode",
-    colors: {
-      primary: "#7F56D9",
-      background: "#FAFAFA",
-      text: "#333333"
-    }
+  { 
+    title: 'Light Mode', 
+    colors: { primaryColor: '#7F56D9', backgroundColor: '#FAFAFA', textColor: '#333333' }
   },
-  {
-    title: "Ocean Breeze",
-    colors: {
-      primary: "#00BCD4",
-      background: "#0A1418",
-      text: "#80CBC4"
-    }
+  { 
+    title: 'Ocean Breeze', 
+    colors: { primaryColor: '#00BCD4', backgroundColor: '#0A1418', textColor: '#80CBC4' }
   },
-  {
-    title: "Retro Vibes",
-    colors: {
-      primary: "#FF4081",
-      background: "#1A1214",
-      text: "#B0BEC5"
-    }
+  { 
+    title: 'Retro Vibes', 
+    colors: { primaryColor: '#FF4081', backgroundColor: '#1A1214', textColor: '#B0BEC5' }
   }
 ]
 
@@ -46,15 +26,15 @@ const getStoredThemes = () => {
   return storedThemes ? JSON.parse(storedThemes) : defaultThemes
 }
 
-const saveThemes = (themes) => {
+const saveThemes = themes => {
   localStorage.setItem('themes', JSON.stringify(themes))
 }
 
 const getSelectedTheme = () => {
-  return localStorage.getItem('selectedTheme') || "Default"
+  return localStorage.getItem('selectedTheme') || 'Default'
 }
 
-const saveSelectedTheme = (themeTitle) => {
+const saveSelectedTheme = themeTitle => {
   localStorage.setItem('selectedTheme', themeTitle)
 }
 
