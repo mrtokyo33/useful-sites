@@ -2,12 +2,14 @@
   "name": "useful-sites",
   "version": "0.1.0",
   "private": true,
+  "description": "Useful Sites is a sleek and intuitive web application that empowers you to effortlessly save, organize, and categorize a diverse range of website links into personalized collections with customizable themes and an interface designed to streamline your online browsing experience.",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "ajv": "^8.17.1",
     "ajv-keywords": "^5.1.0",
+    "axios": "^1.7.9",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-helmet": "^6.1.0",
@@ -17,7 +19,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"npm run start:frontend\"",
+    "start:frontend": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -42,6 +45,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "concurrently": "^9.1.2",
     "css-loader": "^7.1.2",
     "style-loader": "^4.0.0"
   }

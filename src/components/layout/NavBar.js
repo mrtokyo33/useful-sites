@@ -2,10 +2,6 @@ import styles from './css/NavBar.module.css'
 import TextLink from '../linkComponents/TextLink'
 import IconLink from '../linkComponents/IconLink'
 
-//<div className={styles.loginIconContainer}>
-//  <IconLink target='/login' icon='fas fa-user'/>
-//</div>
-
 function NavBar() {
     return (
         <header>
@@ -16,7 +12,11 @@ function NavBar() {
             <nav>
                 <ul className={styles.navUl}>
                     <li className={styles.navItem}><TextLink target='/' linkClass={styles.navItemLink} text='Home' /></li>
-                    <li className={styles.navItem}><a href="https://github.com/mrtokyo33/useful-sites" target="_blank" rel="noopener noreferrer">Repository</a></li>
+                    <li className={styles.navItem}>
+                        <a href="https://github.com/mrtokyo33/useful-sites" target="_blank" rel="noopener noreferrer">
+                            Repository
+                        </a>
+                    </li>
                 </ul>
             </nav>
 
@@ -26,7 +26,9 @@ function NavBar() {
                     <input type="text" name="search" placeholder="Search..." />
                 </div>
 
-                
+                <div className={styles.barsIconContainer}>
+                    <IconLink target='https://www.patreon.com/usefulsites' icon='fa-brands fa-patreon'/>
+                </div>
 
                 <div className={styles.barsIconContainer}>
                     <IconLink target='/configs' icon='fas fa-bars'/>

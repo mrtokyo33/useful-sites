@@ -71,6 +71,7 @@ function ThemesForm () {
       themeService.saveSelectedTheme(themeTitle)
       localStorage.setItem('colors', JSON.stringify(theme.colors))
       handleColorChange(theme.colors)
+      window.location.reload()
     }
   }
 
