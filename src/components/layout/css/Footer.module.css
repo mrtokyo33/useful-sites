@@ -1,0 +1,22 @@
+.footer {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: .5rem;
+    bottom: 0;
+    width: 100%;
+}
+
+.footerText {
+    text-align: center;
+    font-size: .5rem;
+}
+
+.footerText a {
+    font-size: .5rem;
+}
+
+.footerText a:hover {
+    color: var(--secondary-color);
+}

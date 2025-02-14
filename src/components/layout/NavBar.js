@@ -2,6 +2,11 @@ import styles from './css/NavBar.module.css'
 import TextLink from '../linkComponents/TextLink'
 import IconLink from '../linkComponents/IconLink'
 
+//<div className={styles.searchContainer}>
+//    <i className="fa fa-search"></i>
+//    <input type="text" name="search" placeholder="Search..." />
+//</div>
+
 function NavBar() {
     return (
         <header>
@@ -21,10 +26,7 @@ function NavBar() {
             </nav>
 
             <div className={styles.rigthHeader}>
-                <div className={styles.searchContainer}>
-                    <i className="fa fa-search"></i>
-                    <input type="text" name="search" placeholder="Search..." />
-                </div>
+                
 
                 <div className={styles.barsIconContainer}>
                     <IconLink target='https://www.patreon.com/usefulsites' icon='fa-brands fa-patreon'/>
