@@ -8,7 +8,7 @@ import { useColorManager } from '../../../services/useColorManager'
 const defaultThemes = [
   { 
     title: 'Default', 
-    colors: { primaryColor: '#ff00ff', backgroundColor: '#121212', textColor: '#a9a9a9' }
+    colors: { primaryColor: '#c01c28', backgroundColor: '#171419', textColor: '#ffffff' }
   },
   { 
     title: 'Dark Mode', 

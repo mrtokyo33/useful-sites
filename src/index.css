@@ -3,14 +3,14 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
 
 :root {
-    --primary-color: #ff00ff;
-    --secondary-color: #ee00ee;
-    --bg: #121212;
-    --background-color: #1e1e1e;  
-    --panel-color: #1a1a1a;
-    --btn: #292929;
+    --primary-color: #c01c28;
+    --secondary-color: #F21C5A;
+    --bg: #030005;
+    --background-color: #171419;  
+    --panel-color: #120F14;
+    --btn: #030005;
 
-    --text-color: darkgray;
+    --text-color: white;
     --shadow-color: rgba(0, 0, 0, 0.2);
 
     --font: "Roboto Mono";
